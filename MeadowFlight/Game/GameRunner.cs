@@ -122,12 +122,8 @@ public sealed class GameRunner
         var jitter = (float)_random.NextDouble() * _config.MaxGapJitter * 2 - _config.MaxGapJitter;
         var gapY = Math.Clamp((_config.WorldHeight / 2f) + jitter, minGapY, maxGapY);
 
-        _state.Obstacles.Add(new Obstacle
+        _state.Obstacles.Add(new Obstacle(startX, gapY, _config.ObstacleGapHeight, _config.ObstacleWidth)
         {
-            X = startX,
-            GapY = gapY,
-            GapHeight = _config.ObstacleGapHeight,
-            Width = _config.ObstacleWidth,
             HasBeenPassed = false
         });
     }
